@@ -1,0 +1,21 @@
+id_pregunta,pregunta
+1,¿Cuál es su carrera?
+2,¿En qué semestre se encuentra actualmente?
+3,"¿En qué jornada estudia? (matutina, vespertina, nocturna)"
+4,¿Actualmente trabaja además de estudiar? (sí/no)
+5,¿Cuál es su promedio académico actual?
+6,¿Cuenta con acceso a internet en su hogar? (sí/no)
+7,¿Posee computadora personal para sus estudios? (sí/no)
+8,¿Cuántas horas a la semana dedica al estudio fuera de clases?
+9,"¿Qué tan difícil considera su carga académica actual? (baja, media, alta)"
+10,¿Cuál considera que es su curso más difícil actualmente?
+11,"¿Qué nivel de estrés académico presenta? (bajo, medio, alto)"
+12,"¿Qué tan satisfecho está con su carrera? (bajo, medio, alto)"
+13,¿Ha reprobado algún curso en el último semestre? (sí/no)
+14,¿Cuántos cursos está llevando actualmente?
+15,¿Cuál es el promedio de créditos que cursa por semestre?
+16,¿Utiliza plataformas virtuales para estudiar? (sí/no)
+17,"¿Qué tan cómodo se siente con la educación virtual? (bajo, medio, alto)"
+18,¿Considera que tiene suficiente tiempo para estudiar? (sí/no)
+19,¿Cuenta con un espacio adecuado para estudiar en casa? (sí/no)
+20,¿Estaría interesado en llevar cursos completamente virtuales? (sí/no)

@@ -1,0 +1,27 @@
+﻿variable,descripcion,tipo,valores_permitidos
+id_encuestado,Identificador único de respuesta,entero,1..10000
+carrera,Carrera del encuestado,texto,Ingeniería de Sistemas | Ingeniería Electrónica | Ingeniería Eléctrica
+semestre,Semestre actual,entero,5 | 6 | 7
+jornada,Jornada de estudio,texto,Matutina | Vespertina | Nocturna
+trabaja,Actualmente trabaja,texto,Sí | No
+promedio_actual,Promedio general actual del estudiante,entero,45..99
+q01_horas_estudio,Respuesta codificada de la pregunta 01,entero,1..5
+q02_planificacion,Respuesta codificada de la pregunta 02,entero,1..5
+q03_entrega_tareas,Respuesta codificada de la pregunta 03,entero,1..5
+q04_trabajo_equipo,Respuesta codificada de la pregunta 04,entero,1..5
+q05_asistencia,Respuesta codificada de la pregunta 05,entero,1..5
+q06_uso_biblioteca,Respuesta codificada de la pregunta 06,entero,1..5
+q07_uso_plataformas,Respuesta codificada de la pregunta 07,entero,1..5
+q08_consulta_tutorias,Respuesta codificada de la pregunta 08,entero,1..5
+q09_disponibilidad_laboratorios,Respuesta codificada de la pregunta 09,entero,1..5
+q10_calidad_internet,Respuesta codificada de la pregunta 10,entero,1..5
+q11_claridad_docente,Respuesta codificada de la pregunta 11,entero,1..5
+q12_puntualidad_docente,Respuesta codificada de la pregunta 12,entero,1..5
+q13_retroalimentacion,Respuesta codificada de la pregunta 13,entero,1..5
+q14_evaluacion_justa,Respuesta codificada de la pregunta 14,entero,1..5
+q15_dificultad_cursos,Respuesta codificada de la pregunta 15,entero,1..5
+q16_estres_academico,Respuesta codificada de la pregunta 16,entero,1..5
+q17_equilibrio_vida_estudio,Respuesta codificada de la pregunta 17,entero,1..5
+q18_satisfaccion_carrera,Respuesta codificada de la pregunta 18,entero,1..5
+q19_intencion_continuar,Respuesta codificada de la pregunta 19,entero,1..5
+q20_recomendaria_facultad,Respuesta codificada de la pregunta 20,entero,1..5
