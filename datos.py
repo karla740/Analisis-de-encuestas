@@ -97,3 +97,27 @@ for est in estudiantes_db:
     if est[1][0].strip().lower() == "sí": # est[1][0] es 'trabaja'
         trabajan += 1
 print(f"Reporte 1. Estudiantes que trabajan: {trabajan}")
+
+#Cantidad de estudiantes por carrera
+print("\n Bloque 2: Reporte por carrera")
+sistemas=0
+electronica=0
+electrica=0
+
+for est in estudiantes_db:
+    carrera =est [0][1]
+    if carrera == "Ingeniería en Sistemas":
+        sistemas+=1
+    elif carrera == "Ingeniería Electrónica":
+        electronica+=1
+    elif carrera == "Ingeniería Eléctrica":
+        electrica+=1
+
+print(f"Estudiantes en Ign. Sistemas: {sistemas}")
+print(f"Estudiantes en Ign. Electrónica: {electronica}")
+print(f"Estudiantes en Ign. Eléctrica: {electrica}")
+
+#Cantidad de estudiantes por semestre
+print("\n Bloque 3: Reporte por semestre")
+
+        
