@@ -16,19 +16,15 @@ def cargar_datos(ruta_archivo):
             encabezados = next(lector)
             
             for fila in lector:
-                # Siguiendo la guía de "Listas dentro de listas":
-                # Cada 'estudiante' es una lista con sus valores individuales
-                # IMPORTANTE: Se mantienen los datos como strings inicialmente 
-                # para evitar el ValueError hasta que se mapeen los índices correctos.
                 estudiante = fila 
                 
-                # Agregamos la sub-lista a nuestra lista principal (Estructura Anidada)
+                # Agregamos la sub-lista a nuestra lista principal
                 base_datos.append(estudiante)
                 
         return base_datos
 
     except FileNotFoundError:
-        print("❌ Error: El archivo no existe en la ruta especificada.")
+        print("Error: El archivo no existe en la ruta especificada.")
         return []
 
 # --- EJECUCIÓN ---
