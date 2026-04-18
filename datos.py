@@ -119,5 +119,12 @@ print(f"Estudiantes en Ign. Eléctrica: {electrica}")
 
 #Cantidad de estudiantes por semestre
 print("\n Bloque 3: Reporte por semestre")
+semestre_conteo=[0]*11
+for est in estudiantes_db:
+    semestre= est [0][2]
+    if 1<= semestre <= 10:
+        semestre_conteo[semestre] +=1
+for i in range (1, len(semestre_conteo)):
+    print(f"Semestre {i}: {semestre_conteo[i]}")
 
         
