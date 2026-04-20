@@ -245,6 +245,7 @@ def reporte_15_estres_por_carrera(base_datos):
     pos_max = promedios.index(maximo)
     print(f"\nCarrera con mayor estrés promedio: {carreras[pos_max]} ({maximo:.2f})")
 
+<<<<<<< HEAD
 reporte_15_estres_por_carrera(estudiantes_db)
 
 
@@ -509,3 +510,6 @@ reporte_14_curso_dificil(estudiantes_db)
 
 # Reporte 15. Carrera con mayor nivel promedio de estrés. 
 >>>>>>> 523f18b (Reporte 14 curso dificil agregado correctamente)
+=======
+reporte_15_estres_por_carrera(estudiantes_db)
+>>>>>>> 8423dec (Reporte 15 estres por carrera agregado correctamente)
