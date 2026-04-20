@@ -31,7 +31,7 @@ def cargar_datos(ruta_archivo):
 nombre_archivo = 'encuesta_ingenieria_10000_respuestas.csv'
 estudiantes_db = cargar_datos(nombre_archivo)
 
-# Validación de la estructura (como en la guía)
+# Validación de la estructura
 if estudiantes_db:
     print(f"Se cargaron {len(estudiantes_db)} estudiantes.")
     print(f"Ejemplo del primer registro:")
@@ -82,7 +82,7 @@ def organizar_estudiantes(lista_cruda):
             
     return base_datos_organizada
 
-# --- EJECUCIÓN (Añade esto debajo de tu código actual) ---
+# --- EJECUCIÓN ---
 estudiantes_db = organizar_estudiantes(estudiantes_db)
 
 print("Información organizada exitosamente.")
