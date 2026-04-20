@@ -118,7 +118,7 @@ print(f"Estudiantes en Ign. Sistemas: {sistemas}")
 print(f"Estudiantes en Ign. Electrónica: {electronica}")
 print(f"Estudiantes en Ign. Eléctrica: {electrica}")
 
-#Cantidad de estudiantes por semestre
+#Cantidad de estudiantes por semestre. 
 print("\n Bloque 3: Reporte por semestre")
 semestre_conteo=[0]*11
 for est in estudiantes_db:
@@ -128,7 +128,64 @@ for est in estudiantes_db:
 for i in range (1, len(semestre_conteo)):
     print(f"Semestre {i}: {semestre_conteo[i]}")
 
+#Cantidad de estudiantes por jornada.
+print("\n--- REPORTE 4: CANTIDAD DE ESTUDIANTES POR JORNADA ---")
+matutina = 0
+vespertina = 0
+nocturna = 0
 
+for est in estudiantes_db:
+    jornada = est[0][3].strip().capitalize() 
+    if jornada == "Matutina":
+        matutina += 1
+    elif jornada == "Vespertina":
+        vespertina += 1
+    elif jornada == "Nocturna":
+        nocturna += 1
+
+print(f"Estudiantes en Jornada Matutina: {matutina}")
+print(f"Estudiantes en Jornada Vespertina: {vespertina}")
+print(f"Estudiantes en Jornada Nocturna: {nocturna}")
+
+#Porcentaje de estudiantes que trabajan y que no trabajan.
+print("\n--- REPORTE 5: PORCENTAJE DE ESTUDIANTES SEGÚN SITUACIÓN LABORAL ---")
+
+total_estudiantes = len(estudiantes_db)
+
+if total_estudiantes > 0:
+    trabajan_conteo = 0
+    for est in estudiantes_db:
+        if est[1][0].strip().lower() == "sí":
+            trabajan_conteo += 1
+    
+    no_trabajan_conteo = total_estudiantes - trabajan_conteo
+    
+    porcentaje_trabajan = (trabajan_conteo / total_estudiantes) * 100
+    porcentaje_no_trabajan = (no_trabajan_conteo / total_estudiantes) * 100
+    
+    print(f"Total de estudiantes analizados: {total_estudiantes}")
+    print(f"Trabajan: {trabajan_conteo} ({porcentaje_trabajan:.2f}%)")
+    print(f"No trabajan: {no_trabajan_conteo} ({porcentaje_no_trabajan:.2f}%)")
+else:
+    print("No hay datos suficientes para calcular porcentajes.")
+
+#Promedio general del promedio académico reportado.
+print("\n--- REPORTE 6: PROMEDIO GENERAL ACADÉMICO ---")
+
+suma_promedios = 0.0
+total_registros = len(estudiantes_db)
+
+if total_registros > 0:
+    for est in estudiantes_db:
+        promedio_individual = est[2][0]
+        suma_promedios += promedio_individual
+    
+    promedio_general = suma_promedios / total_registros
+    
+    print(f"La suma total de los promedios es: {suma_promedios:.2f}")
+    print(f"El promedio general de la población estudiantil es: {promedio_general:.2f}")
+else:
+    print("No se encontraron registros para calcular el promedio.")
 
 # REPORTES 11 - 15 ========================================================================================================
 print("\n" + "="*70)
