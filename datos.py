@@ -98,7 +98,7 @@ electrica=0
 
 for est in estudiantes_db:
     carrera =est [0][1]
-    if carrera == "Ingeniería en Sistemas":
+    if carrera == "Ingeniería de Sistemas":
         sistemas+=1
     elif carrera == "Ingeniería Electrónica":
         electronica+=1
