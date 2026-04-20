@@ -456,4 +456,28 @@ def reporte_12_satisfaccion(base_datos):
 
 reporte_12_satisfaccion(estudiantes_db)
 
+<<<<<<< HEAD
 >>>>>>> 11f6aff (Reporte 12 satisfacción con la carrera agregado correctamente)
+=======
+# Reporte 13. Nivel de estrés académico general.
+def reporte_13_estres(base_datos):
+    # Lista para niveles 1 a 5
+    conteo = [0, 0, 0, 0, 0]
+    for est in base_datos:
+        try:
+            nivel = int(est[3][18])  # q19
+
+            conteo[nivel - 1] += 1
+        except:
+            continue
+
+    print("\n--- REPORTE 13 ---")
+    print("Nivel de estrés académico general:\n")
+    total = sum(conteo)
+    
+    for i in range(5):
+        porcentaje = (conteo[i] / total) * 100
+        print(f"Nivel {i+1}: {conteo[i]} estudiantes ({porcentaje:.2f}%)")
+
+reporte_13_estres(estudiantes_db)
+>>>>>>> ed07aef (Reporte 13 estres con la carrera agregado correctamente)
