@@ -12,7 +12,7 @@ def cargar_datos(ruta_archivo):
             # Usamos el lector estándar de CSV
             lector = csv.reader(archivo)
             
-            # Saltamos los encabezados para procesar solo datos puros
+            # Salta los encabezados para procesar solo los datos
             encabezados = next(lector)
             
             for fila in lector:
@@ -50,7 +50,7 @@ def organizar_estudiantes(lista_cruda):
             jornada       = fila[3]
             generales = [id_estudiante, carrera, semestre, jornada]
             
-            # 2. Respuestas Económicas/Personales (Índice 4: El "No")
+            # 2. Respuestas Económicas/Personales (Índice 4: El "No/Sí")
             trabaja = fila[4]
             economicas = [trabaja]
             
@@ -64,7 +64,7 @@ def organizar_estudiantes(lista_cruda):
             # Las dejamos como texto temporalmente para evitar errores
             respuestas_encuesta = fila[7:] 
             
-            # Estructura Final Anidada (Punto 3 de tu guía)
+            # Estructura Final Anidada
             estudiante_organizado = [
                 generales,            # Posición 0
                 economicas,           # Posición 1
@@ -75,7 +75,7 @@ def organizar_estudiantes(lista_cruda):
             base_datos_organizada.append(estudiante_organizado)
             
         except ValueError as e:
-            # Si hay una fila corrupta, te avisará pero no detendrá el programa
+            # Muestra los errores.
             print(f"Error en la fila del estudiante {fila[0]}: {e}")
             
     return base_datos_organizada
