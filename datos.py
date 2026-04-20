@@ -34,8 +34,6 @@ estudiantes_db = cargar_datos(nombre_archivo)
 # Validación de la estructura
 if estudiantes_db:
     print(f"Se cargaron {len(estudiantes_db)} estudiantes.")
-    print(f"Ejemplo del primer registro:")
-    print(estudiantes_db[0])
 
 def organizar_estudiantes(lista_cruda):
     """
@@ -86,17 +84,10 @@ def organizar_estudiantes(lista_cruda):
 estudiantes_db = organizar_estudiantes(estudiantes_db)
 
 print("Información organizada exitosamente.")
-print("Ejemplo de la nueva estructura anidada del primer estudiante:")
-print(estudiantes_db[0])
 
-print("\n--- BLOQUE 1: CONTEOS Y SUMATORIAS ---")
-
-# Reporte 1: Conteo de estudiantes que trabajan
-trabajan = 0
-for est in estudiantes_db:
-    if est[1][0].strip().lower() == "sí": # est[1][0] es 'trabaja'
-        trabajan += 1
-print(f"Reporte 1. Estudiantes que trabajan: {trabajan}")
+# Reporte 1: Total de encuestados. 
+total_encuestados = len(estudiantes_db)
+print(f"1. Total de encuestados: {total_encuestados}")
 
 #Reporte 2 -6 ---------------------------------------------------------------------------------------------------------------------------------------
 #Cantidad de estudiantes por carrera
@@ -186,6 +177,84 @@ if total_registros > 0:
     print(f"El promedio general de la población estudiantil es: {promedio_general:.2f}")
 else:
     print("No se encontraron registros para calcular el promedio.")
+
+
+# REPORTES 7 - 9 ========================================================================================================
+print("\n" + "="*70)
+print("REPORTES 7 AL 9".center(70,"-"))
+print("="*70)
+
+# REPORTE 7: Promedio académico por carrera
+print("\n7. Promedio académico por carrera")
+carreras_r7 = []            # carreras en reporte 7
+sumas_promedio_r7 = []      # sumas de promedios en reporte 7
+conteos_carrera_r7 = []     # conteo de carreras en reporte 7
+
+for est in estudiantes_db:
+    carrera = est[0][1]      # est[0] = generales   [1] carrera
+    promedio = est[2][0]     # est[2] = academicas  [0] promedio
+
+    if carrera in carreras_r7:
+        posicion_carrera = carreras_r7.index(carrera)
+        sumas_promedio_r7[posicion_carrera] += promedio
+        conteos_carrera_r7[posicion_carrera] += 1
+    else:
+        carreras_r7.append(carrera)
+        sumas_promedio_r7.append(promedio)
+        conteos_carrera_r7.append(1)
+
+#Promedio por carrera
+for indice_carrera in range(len(carreras_r7)):
+    promedio_final = sumas_promedio_r7[indice_carrera] / conteos_carrera_r7[indice_carrera]
+    nombre_carrera = carreras_r7[indice_carrera]
+    
+    print(f"{nombre_carrera}: {promedio_final:.2f}")
+
+
+# REPORTE 8: Promedio académico por semestre
+print("\n8. Promedio académico por semestre")
+semestres_r8 = []           # semestres en reporte 8
+sumas_promedio_r8 = []      # sumas de promedios en reporte 8
+conteos_semestre_r8 = []    # conteo de semestres en reporte 8
+
+for est in estudiantes_db:
+    semestre = est[0][2]     # est[0] = generales   [2] semestre
+    promedio = est[2][0]     # est[2] = academicas  [0] promedio
+    
+    if semestre in semestres_r8:
+        pos = semestres_r8.index(semestre)
+        sumas_promedio_r8[pos] += promedio
+        conteos_semestre_r8[pos] += 1
+    else:
+        semestres_r8.append(semestre)
+        sumas_promedio_r8.append(promedio)
+        conteos_semestre_r8.append(1)
+
+# Promedio por semestre
+for indice_semestre in range(len(semestres_r8)):
+    promedio_final = sumas_promedio_r8[indice_semestre] / conteos_semestre_r8[indice_semestre]
+    numero_semestre = semestres_r8[indice_semestre]
+    
+    print(f"Semestre {numero_semestre}: {promedio_final:.2f}")
+
+
+# REPORTE 9: Cantidad de estudiantes con acceso a internet en casa (Se cambia a calidad al ser respuesta de escala)
+print("\n9. Cantidad de estudiantes según calidad de acceso a internet en casa")
+internet_bueno = 0  # Escala 3, 4, 5
+internet_malo = 0   # Escala 1, 2
+
+for est in estudiantes_db:
+    try:
+        calidad_internet = int(est[3][8])
+        if calidad_internet >= 3:
+            internet_bueno += 1
+        else:
+            internet_malo += 1
+    except ValueError:
+        continue
+
+print(f"Cantidad de estudiantes con calidad de internet Aceptable/Buena: {internet_bueno}")
+print(f"Cantidad de estudiantes con calidad de internet Deficiente: {internet_malo}")
 
 # REPORTES 11 - 15 ========================================================================================================
 print("\n" + "="*70)
