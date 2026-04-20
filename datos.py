@@ -148,6 +148,7 @@ def reporte_11_horas_estudio(base_datos):
     for horas in sorted(conteo_horas):
         print(f"{horas} horas: {conteo_horas[horas]} estudiantes")
 reporte_11_horas_estudio(estudiantes_db)
+<<<<<<< HEAD
 
 # Reporte 12. Nivel de satisfacción general con la carrera.
 def reporte_12_satisfaccion(base_datos):
@@ -432,3 +433,27 @@ print(f"   - Satisfacción: {sat_pred[0]}")
 
 print("\n¡Reportes 16 al 20 completados!")
 print("")
+=======
+
+# 12. Nivel de satisfacción general con la carrera.
+def reporte_12_satisfaccion(base_datos):
+    # Lista para contar niveles 1 a 5
+    conteo = [0, 0, 0, 0, 0]  # índice 0→nivel1, 1→nivel2...
+    for est in base_datos:
+        try:
+            nivel = int(est[3][17])  # q18
+            # Ajustamos índice (nivel 1 va en posición 0)
+            conteo[nivel - 1] += 1
+        except:
+            continue
+    print("\n--- REPORTE 12 ---")
+    print("Nivel de satisfacción general con la carrera:\n")
+    total = sum(conteo)
+
+    for i in range(5):
+        porcentaje = (conteo[i] / total) * 100
+        print(f"Nivel {i+1}: {conteo[i]} estudiantes ({porcentaje:.2f}%)")
+
+reporte_12_satisfaccion(estudiantes_db)
+
+>>>>>>> 11f6aff (Reporte 12 satisfacción con la carrera agregado correctamente)
