@@ -252,6 +252,7 @@ def reporte_15_estres_por_carrera(base_datos):
 reporte_15_estres_por_carrera(estudiantes_db)
 
 
+<<<<<<< HEAD
 # REPORTES 16-20 ========================================================================================================
 print("\n" + "="*70)
 print("REPORTES 16 AL 20".center(70,"-"))
@@ -516,3 +517,18 @@ reporte_14_curso_dificil(estudiantes_db)
 =======
 reporte_15_estres_por_carrera(estudiantes_db)
 >>>>>>> 8423dec (Reporte 15 estres por carrera agregado correctamente)
+=======
+print(f"Estudiantes en Ign. Sistemas: {sistemas}")
+print(f"Estudiantes en Ign. Electrónica: {electronica}")
+print(f"Estudiantes en Ign. Eléctrica: {electrica}")
+
+#Cantidad de estudiantes por semestre
+print("\n Bloque 3: Reporte por semestre")
+semestre_conteo=[0]*11
+for est in estudiantes_db:
+    semestre= est [0][2]
+    if 1<= semestre <= 10:
+        semestre_conteo[semestre] +=1
+for i in range (1, len(semestre_conteo)):
+    print(f"Semestre {i}: {semestre_conteo[i]}")
+>>>>>>> 9542cc3 (Afinando detalles en reportes 11 - 15)
