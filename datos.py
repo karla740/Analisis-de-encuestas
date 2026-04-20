@@ -187,6 +187,7 @@ def reporte_13_estres(base_datos):
     print("Nivel de estrés académico general:\n")
     total = sum(conteo)
 
+<<<<<<< HEAD
     for i in range(5):
         porcentaje = (conteo[i] / total) * 100
         print(f"Nivel {i+1}: {conteo[i]} estudiantes ({porcentaje:.2f}%)")
@@ -475,9 +476,36 @@ def reporte_13_estres(base_datos):
     print("Nivel de estrés académico general:\n")
     total = sum(conteo)
     
+=======
+>>>>>>> 523f18b (Reporte 14 curso dificil agregado correctamente)
     for i in range(5):
         porcentaje = (conteo[i] / total) * 100
         print(f"Nivel {i+1}: {conteo[i]} estudiantes ({porcentaje:.2f}%)")
 
 reporte_13_estres(estudiantes_db)
+<<<<<<< HEAD
 >>>>>>> ed07aef (Reporte 13 estres con la carrera agregado correctamente)
+=======
+
+# Reporte 14. Curso percibido como mas dificil
+def reporte_14_curso_dificil(base_datos):
+    conteo = [0, 0, 0, 0, 0]
+
+    for est in base_datos:
+        try:
+            valor = int(est[3][9])  # q10 (curso más difícil)
+            conteo[valor - 1] += 1
+        except:
+            continue
+
+    print("\n--- REPORTE 14 ---")
+    print("Curso percibido como más difícil:\n")
+
+    maximo = max(conteo)
+    posicion = conteo.index(maximo)
+
+    print(f"Valor más frecuente: {posicion + 1} ({maximo} estudiantes)")
+reporte_14_curso_dificil(estudiantes_db)
+
+# Reporte 15. Carrera con mayor nivel promedio de estrés. 
+>>>>>>> 523f18b (Reporte 14 curso dificil agregado correctamente)
