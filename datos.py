@@ -61,7 +61,6 @@ def organizar_estudiantes(lista_cruda):
             
             # 4. Resto de la encuesta (Índices del 7 al 25)
             # Como son preguntas de escala (ej. 1 al 5), las guardamos todas juntas en una lista
-            # Las dejamos como texto temporalmente para evitar errores
             respuestas_encuesta = fila[7:] 
             
             # Estructura Final Anidada
