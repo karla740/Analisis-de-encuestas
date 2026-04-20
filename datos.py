@@ -127,7 +127,6 @@ for est in estudiantes_db:
 for i in range (1, len(semestre_conteo)):
     print(f"Semestre {i}: {semestre_conteo[i]}")
 
-        
 # REPORTES 16-20
 print("\n" + "="*70)
 print("REPORTES 16 AL 20".center(70,"-"))
