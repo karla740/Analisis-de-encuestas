@@ -98,7 +98,6 @@ for est in estudiantes_db:
         trabajan += 1
 print(f"Reporte 1. Estudiantes que trabajan: {trabajan}")
 
-<<<<<<< HEAD
 #Cantidad de estudiantes por carrera
 print("\n Bloque 2: Reporte por carrera")
 sistemas=0
@@ -128,8 +127,6 @@ for est in estudiantes_db:
 for i in range (1, len(semestre_conteo)):
     print(f"Semestre {i}: {semestre_conteo[i]}")
 
-=======
->>>>>>> 2f87837 (Reportes del 11 al 15 agregados)
 # REPORTES 11 - 15 ===========================================================================
 print("\n" + "="*70)
 print("REPORTES 11 AL 15".center(70,"-"))
@@ -151,7 +148,6 @@ def reporte_11_horas_estudio(base_datos):
     for horas in sorted(conteo_horas):
         print(f"{horas} horas: {conteo_horas[horas]} estudiantes")
 reporte_11_horas_estudio(estudiantes_db)
-<<<<<<< HEAD
 
 # Reporte 12. Nivel de satisfacción general con la carrera.
 def reporte_12_satisfaccion(base_datos):
@@ -189,11 +185,6 @@ def reporte_13_estres(base_datos):
     print("\n--- REPORTE 13 ---")
     print("Nivel de estrés académico general:\n")
     total = sum(conteo)
-
-<<<<<<< HEAD
-    for i in range(5):
-        porcentaje = (conteo[i] / total) * 100
-        print(f"Nivel {i+1}: {conteo[i]} estudiantes ({porcentaje:.2f}%)")
 
 reporte_13_estres(estudiantes_db)
 
@@ -248,11 +239,9 @@ def reporte_15_estres_por_carrera(base_datos):
     pos_max = promedios.index(maximo)
     print(f"\nCarrera con mayor estrés promedio: {carreras[pos_max]} ({maximo:.2f})")
 
-<<<<<<< HEAD
+
 reporte_15_estres_por_carrera(estudiantes_db)
 
-
-<<<<<<< HEAD
 # REPORTES 16-20 ========================================================================================================
 print("\n" + "="*70)
 print("REPORTES 16 AL 20".center(70,"-"))
@@ -439,96 +428,3 @@ print(f"   - Satisfacción: {sat_pred[0]}")
 
 print("\n¡Reportes 16 al 20 completados!")
 print("")
-=======
-
-# 12. Nivel de satisfacción general con la carrera.
-def reporte_12_satisfaccion(base_datos):
-    # Lista para contar niveles 1 a 5
-    conteo = [0, 0, 0, 0, 0]  # índice 0→nivel1, 1→nivel2...
-    for est in base_datos:
-        try:
-            nivel = int(est[3][17])  # q18
-            # Ajustamos índice (nivel 1 va en posición 0)
-            conteo[nivel - 1] += 1
-        except:
-            continue
-    print("\n--- REPORTE 12 ---")
-    print("Nivel de satisfacción general con la carrera:\n")
-    total = sum(conteo)
-
-    for i in range(5):
-        porcentaje = (conteo[i] / total) * 100
-        print(f"Nivel {i+1}: {conteo[i]} estudiantes ({porcentaje:.2f}%)")
-
-reporte_12_satisfaccion(estudiantes_db)
-
-<<<<<<< HEAD
->>>>>>> 11f6aff (Reporte 12 satisfacción con la carrera agregado correctamente)
-=======
-# Reporte 13. Nivel de estrés académico general.
-def reporte_13_estres(base_datos):
-    # Lista para niveles 1 a 5
-    conteo = [0, 0, 0, 0, 0]
-    for est in base_datos:
-        try:
-            nivel = int(est[3][18])  # q19
-
-            conteo[nivel - 1] += 1
-        except:
-            continue
-
-    print("\n--- REPORTE 13 ---")
-    print("Nivel de estrés académico general:\n")
-    total = sum(conteo)
-    
-=======
->>>>>>> 523f18b (Reporte 14 curso dificil agregado correctamente)
-    for i in range(5):
-        porcentaje = (conteo[i] / total) * 100
-        print(f"Nivel {i+1}: {conteo[i]} estudiantes ({porcentaje:.2f}%)")
-
-reporte_13_estres(estudiantes_db)
-<<<<<<< HEAD
->>>>>>> ed07aef (Reporte 13 estres con la carrera agregado correctamente)
-=======
-
-# Reporte 14. Curso percibido como mas dificil
-def reporte_14_curso_dificil(base_datos):
-    conteo = [0, 0, 0, 0, 0]
-
-    for est in base_datos:
-        try:
-            valor = int(est[3][9])  # q10 (curso más difícil)
-            conteo[valor - 1] += 1
-        except:
-            continue
-
-    print("\n--- REPORTE 14 ---")
-    print("Curso percibido como más difícil:\n")
-
-    maximo = max(conteo)
-    posicion = conteo.index(maximo)
-
-    print(f"Valor más frecuente: {posicion + 1} ({maximo} estudiantes)")
-reporte_14_curso_dificil(estudiantes_db)
-
-# Reporte 15. Carrera con mayor nivel promedio de estrés. 
->>>>>>> 523f18b (Reporte 14 curso dificil agregado correctamente)
-=======
-reporte_15_estres_por_carrera(estudiantes_db)
->>>>>>> 8423dec (Reporte 15 estres por carrera agregado correctamente)
-=======
-print(f"Estudiantes en Ign. Sistemas: {sistemas}")
-print(f"Estudiantes en Ign. Electrónica: {electronica}")
-print(f"Estudiantes en Ign. Eléctrica: {electrica}")
-
-#Cantidad de estudiantes por semestre
-print("\n Bloque 3: Reporte por semestre")
-semestre_conteo=[0]*11
-for est in estudiantes_db:
-    semestre= est [0][2]
-    if 1<= semestre <= 10:
-        semestre_conteo[semestre] +=1
-for i in range (1, len(semestre_conteo)):
-    print(f"Semestre {i}: {semestre_conteo[i]}")
->>>>>>> 9542cc3 (Afinando detalles en reportes 11 - 15)
