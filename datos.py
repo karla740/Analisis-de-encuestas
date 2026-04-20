@@ -127,7 +127,126 @@ for est in estudiantes_db:
 for i in range (1, len(semestre_conteo)):
     print(f"Semestre {i}: {semestre_conteo[i]}")
 
-# REPORTES 16-20
+# REPORTES 11 - 15 ===========================================================================
+print("\n" + "="*70)
+print("REPORTES 11 AL 15".center(70,"-"))
+print("="*70)
+# Reporte 11. Cantidad de estudiantes según horas de estudio semanal.
+def reporte_11_horas_estudio(base_datos):
+    conteo_horas = {}
+
+    for est in base_datos:
+        horas = est[2][1]  # academicas -> horas_estudio
+
+        if horas in conteo_horas:
+            conteo_horas[horas] += 1
+        else:
+            conteo_horas[horas] = 1
+    print("\n--- REPORTE 11 ---")
+    print("Cantidad de estudiantes según horas de estudio semanal:\n")
+
+    for horas in sorted(conteo_horas):
+        print(f"{horas} horas: {conteo_horas[horas]} estudiantes")
+reporte_11_horas_estudio(estudiantes_db)
+
+# Reporte 12. Nivel de satisfacción general con la carrera.
+def reporte_12_satisfaccion(base_datos):
+    # Lista para contar niveles 1 a 5
+    conteo = [0, 0, 0, 0, 0]  # índice 0→nivel1, 1→nivel2...
+    for est in base_datos:
+        try:
+            nivel = int(est[3][17])  # q18
+            # Ajustamos índice (nivel 1 va en posición 0)
+            conteo[nivel - 1] += 1
+        except:
+            continue
+    print("\n--- REPORTE 12 ---")
+    print("Nivel de satisfacción general con la carrera:\n")
+    total = sum(conteo)
+
+    for i in range(5):
+        porcentaje = (conteo[i] / total) * 100
+        print(f"Nivel {i+1}: {conteo[i]} estudiantes ({porcentaje:.2f}%)")
+
+reporte_12_satisfaccion(estudiantes_db)
+
+# Reporte 13. Nivel de estrés académico general.
+def reporte_13_estres(base_datos):
+    # Lista para niveles 1 a 5
+    conteo = [0, 0, 0, 0, 0]
+    for est in base_datos:
+        try:
+            nivel = int(est[3][18])  # q19
+
+            conteo[nivel - 1] += 1
+        except:
+            continue
+
+    print("\n--- REPORTE 13 ---")
+    print("Nivel de estrés académico general:\n")
+    total = sum(conteo)
+
+    for i in range(5):
+        porcentaje = (conteo[i] / total) * 100
+        print(f"Nivel {i+1}: {conteo[i]} estudiantes ({porcentaje:.2f}%)")
+
+reporte_13_estres(estudiantes_db)
+
+# Reporte 14. Curso percibido como mas dificil
+def reporte_14_curso_dificil(base_datos):
+    conteo = [0, 0, 0, 0, 0]
+
+    for est in base_datos:
+        try:
+            valor = int(est[3][9])  # q10 (curso más difícil)
+            conteo[valor - 1] += 1
+        except:
+            continue
+
+    print("\n--- REPORTE 14 ---")
+    print("Curso percibido como más difícil:\n")
+
+    maximo = max(conteo)
+    posicion = conteo.index(maximo)
+
+    print(f"Valor más frecuente: {posicion + 1} ({maximo} estudiantes)")
+reporte_14_curso_dificil(estudiantes_db)
+
+# Reporte 15. Carrera con mayor nivel promedio de estrés. 
+def reporte_15_estres_por_carrera(base_datos):
+    carreras = []
+    suma_estres = []
+    conteo = []
+
+    for est in base_datos:
+        try:
+            carrera = est[0][1]
+            estres = int(est[3][10])  # q11 = estrés
+            if carrera in carreras:
+                pos = carreras.index(carrera)
+                suma_estres[pos] += estres
+                conteo[pos] += 1
+            else:
+                carreras.append(carrera)
+                suma_estres.append(estres)
+                conteo.append(1)
+        except:
+            continue
+    print("\n--- REPORTE 15 ---")
+    print("Carrera con mayor nivel promedio de estrés:\n")
+    promedios = []
+    for i in range(len(carreras)):
+        promedio = suma_estres[i] / conteo[i]
+        promedios.append(promedio)
+        print(f"{carreras[i]}: {promedio:.2f}")
+    maximo = max(promedios)
+    pos_max = promedios.index(maximo)
+    print(f"\nCarrera con mayor estrés promedio: {carreras[pos_max]} ({maximo:.2f})")
+
+reporte_15_estres_por_carrera(estudiantes_db)
+
+
+# REPORTES 16-20 ========================================================================================================
 print("\n" + "="*70)
 print("REPORTES 16 AL 20".center(70,"-"))
 print("="*70)
