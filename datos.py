@@ -98,6 +98,7 @@ for est in estudiantes_db:
         trabajan += 1
 print(f"Reporte 1. Estudiantes que trabajan: {trabajan}")
 
+#Reporte 2 -6 ---------------------------------------------------------------------------------------------------------------------------------------
 #Cantidad de estudiantes por carrera
 print("\n Bloque 2: Reporte por carrera")
 sistemas=0
@@ -126,6 +127,8 @@ for est in estudiantes_db:
         semestre_conteo[semestre] +=1
 for i in range (1, len(semestre_conteo)):
     print(f"Semestre {i}: {semestre_conteo[i]}")
+
+
 
 # REPORTES 11 - 15 ========================================================================================================
 print("\n" + "="*70)
