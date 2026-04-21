@@ -261,20 +261,32 @@ print("REPORTES 11 AL 15".center(70,"-"))
 print("="*70)
 # Reporte 11. Cantidad de estudiantes según horas de estudio semanal.
 def reporte_11_horas_estudio(base_datos):
-    conteo_horas = {}
+    horas_unicas = []
+    conteo = []
 
     for est in base_datos:
-        horas = est[2][1]  # academicas -> horas_estudio
+        horas = est[2][1]  # horas de estudio
 
-        if horas in conteo_horas:
-            conteo_horas[horas] += 1
+        if horas in horas_unicas:
+            pos = horas_unicas.index(horas)
+            conteo[pos] += 1
         else:
-            conteo_horas[horas] = 1
+            horas_unicas.append(horas)
+            conteo.append(1)
+
     print("\n--- REPORTE 11 ---")
     print("Cantidad de estudiantes según horas de estudio semanal:\n")
 
-    for horas in sorted(conteo_horas):
-        print(f"{horas} horas: {conteo_horas[horas]} estudiantes")
+    # ordenar resultados
+    for i in range(len(horas_unicas)):
+        for j in range(i + 1, len(horas_unicas)):
+            if horas_unicas[i] > horas_unicas[j]:
+                horas_unicas[i], horas_unicas[j] = horas_unicas[j], horas_unicas[i]
+                conteo[i], conteo[j] = conteo[j], conteo[i]
+
+    for i in range(len(horas_unicas)):
+        print(f"{horas_unicas[i]} horas: {conteo[i]} estudiantes")
+
 reporte_11_horas_estudio(estudiantes_db)
 
 # Reporte 12. Nivel de satisfacción general con la carrera.
@@ -300,11 +312,11 @@ reporte_12_satisfaccion(estudiantes_db)
 
 # Reporte 13. Nivel de estrés académico general.
 def reporte_13_estres(base_datos):
-    # Lista para niveles 1 a 5
     conteo = [0, 0, 0, 0, 0]
+
     for est in base_datos:
         try:
-            nivel = int(est[3][18])  # q19
+            nivel = int(est[3][15])  # q16 (estrés académico)
 
             conteo[nivel - 1] += 1
         except:
@@ -312,7 +324,12 @@ def reporte_13_estres(base_datos):
 
     print("\n--- REPORTE 13 ---")
     print("Nivel de estrés académico general:\n")
+
     total = sum(conteo)
+
+    for i in range(5):
+        porcentaje = (conteo[i] / total) * 100 if total > 0 else 0
+        print(f"Nivel {i+1}: {conteo[i]} estudiantes ({porcentaje:.2f}%)")
 
 reporte_13_estres(estudiantes_db)
 
